@@ -39,10 +39,9 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-
+        
     - name: Check for outdated dependencies
-      run: |
-    	pip list --outdated
+      run: pip list --outdated
 
     - name: Run security audit with pip-audit
       uses: pypa/gh-action-pip-audit@v1.1.0
@@ -63,4 +62,3 @@ jobs:
         MARIADB_USER: uvlhub_user
         MARIADB_PASSWORD: uvlhub_password
         CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
-
