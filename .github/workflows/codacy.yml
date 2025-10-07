@@ -41,15 +41,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Check for outdated dependencies (SOLUCIÓN SIMPLE)
+    - name: Check for dependency updates
       run: |
-        echo "=== Dependencies with available updates ==="
-        pip list --outdated --format=columns
+        echo "=== Checking for outdated dependencies ==="
+        pip list --outdated
 
-    - name: Run security audit with pip-audit
+    - name: Security audit with pip-audit
       run: |
         pip install pip-audit
-        pip-audit -r requirements.txt
+        pip-audit --local
 
     - name: Upload coverage to Codacy
       run: |
