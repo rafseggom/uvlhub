@@ -41,10 +41,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Check for dependency updates
+    - name: Check for outdated dependencies (SOLUCIÓN SIMPLE)
       run: |
-        pip install pip-upgrader
-        pip-upgrader --check-only requirements.txt
+        echo "=== Dependencies with available updates ==="
+        pip list --outdated --format=columns
 
     - name: Run security audit with pip-audit
       run: |
